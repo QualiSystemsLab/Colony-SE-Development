@@ -8,11 +8,11 @@ $agent_zip = $folder + "/Agent.zip"
 $config_file = $folder + "/" + "config.cmd"
 $run_file = $folder + "/" + "run.cmd"
 $username = "Network Service"
-$token = $AzureDevOpsPAT
-$pool = $AgentPoolName
-$url = $AzureDevOpsURL
-$agent_name = $AgentName
-$agent_install_url = $AgentInstallURL
+$token = $env:AzureDevOpsPAT
+$pool = $env:AgentPoolName
+$url = $env:AzureDevOpsURL
+$agent_name = $env:AgentName
+$agent_install_url = $env:AgentInstallURL
 
 # download file
 New-Item -Path "c:\" -Name "Agent" -ItemType "directory"
