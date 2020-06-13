@@ -1,4 +1,5 @@
 Start-Transcript -path C:\output.txt -append
+dir env:
 # Config & run Agent
 # Set ACL
 $drive = "C:/"
