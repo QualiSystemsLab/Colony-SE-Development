@@ -1,3 +1,4 @@
+Start-Transcript -path C:\output.txt -append
 # Config & run Agent
 # Set ACL
 $drive = "C:/"
