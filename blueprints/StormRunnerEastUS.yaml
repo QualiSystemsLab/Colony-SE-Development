@@ -6,7 +6,7 @@ metadata:
   description: StormRunner Application
 
 clouds:
-  - azure: eastus
+  - azure: azure 4
 
 # These are the blueprint parameters and their default values.
 # The values can be changed when creating a sandbox based on this
