@@ -1,0 +1,1 @@
+'This is some text' | Out-File -FilePath 'C:/aa.txt'

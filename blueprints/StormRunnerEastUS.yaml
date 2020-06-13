@@ -1,0 +1,22 @@
+---
+spec_version: 1
+kind: blueprint
+
+metadata:
+  description: StormRunner Application
+
+clouds:
+  - azure: eastus
+
+# These are the blueprint parameters and their default values.
+# The values can be changed when creating a sandbox based on this
+# blueprint.
+
+# These are the applications that will be deployed in this blueprint
+applications:
+
+  - StormRunnerAgent:
+      instances: 1
+
+debugging:
+  availability: enabled-on
