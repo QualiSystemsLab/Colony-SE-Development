@@ -10,9 +10,6 @@ clouds:
 
 inputs:
   - AzureDevOpsPAT: token
-      display_style: masked
-      description: Azure PAT
-      default_value: Token
   - AgentPoolName: AgentPool
   - AzureDevOpsURL: https://dev.azure.com/{project}
   - AgentName: MyAgent
