@@ -13,6 +13,7 @@ inputs:
   - AgentPoolName: AgentPool
   - AzureDevOpsURL: https://dev.azure.com/{project}
   - AgentName: MyAgent
+  - AgentInstallURL: https://vstsagentpackage.azureedge.net/agent/2.170.1/vsts-agent-win-x64-2.170.1.zip
 
 applications:
 

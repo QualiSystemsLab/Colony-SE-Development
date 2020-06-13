@@ -1,6 +1,8 @@
 # Config & run Agent
 # Set ACL
-$folder = "C:/Agent"
+$drive = "C:/"
+$folder = $drive + "Agent"
+$agent_zip = $folder + "/Agent.zip"
 $config_file = $folder + "/" + "config.cmd"
 $run_file = $folder + "/" + "run.cmd"
 $username = "Network Service"
@@ -8,6 +10,12 @@ $token = $AzureDevOpsPAT
 $pool = $AgentPoolName
 $url = $AzureDevOpsURL
 $agent_name = $AgentName
+$agent_install_url = $AgentInstallURL
+
+# download file
+New-Item -Path "c:\" -Name "Agent" -ItemType "directory"
+Invoke-WebRequest -Uri $agent_install_url -OutFile $agent_zip
+Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory($agent_zip, $folder)
 
 $acl = get-acl $folder
 $rule = New-Object System.Security.AccessControl.FileSystemAccessRule($username,"FullControl","Allow")
