@@ -24,7 +24,7 @@ $rule = New-Object System.Security.AccessControl.FileSystemAccessRule($username,
 $acl.SetAccessRule($rule)
 $acl | Set-Acl $folder
 $out = ""
-$out = cmd.exe /C $config_file --unattended --auth pat --token $token --url $url --pool $pool --agent $agent_name --acceptTeeEula --runAsService
+$out = cmd.exe /C $config_file --unattended --auth pat --token $token --url $url --pool $pool --agent $agent_name --acceptTeeEula --runAsService --WindowsLogonAccount 'NT AUTHORITY\SYSTEM'
 echo $out
 
 # Choco & friends
