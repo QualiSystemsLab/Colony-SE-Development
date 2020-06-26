@@ -13,7 +13,7 @@ infrastructure:
   compute:
     spec:
       azure:
-        vm_size: Basic_A2
+        vm_size: Standard_D2a_v4
 
 # This is a clean Ubuntu server image that will be
 # used to create a new EC2 instance in the defined AWS region
