@@ -17,7 +17,7 @@ $local_user = $env:LocalUser
 $local_password = $env:LocalUserPassword
 
 # Create local account
-net user /add $local_user $local_password
+net user /add / Y $local_user $local_password
 net localgroup administrators $local_user /add
 
 
