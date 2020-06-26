@@ -13,6 +13,13 @@ $pool = $env:AgentPoolName
 $url = $env:AzureDevOpsURL
 $agent_name = $env:AgentName
 $agent_install_url = $env:AgentInstallURL
+$local_user = $env:LocalUser
+$local_password = $env:LocalUserPassword
+
+# Create local account
+net user /add $local_user $local_password
+net localgroup administrators $local_user /add
+
 
 # download file
 New-Item -Path "c:\" -Name "Agent" -ItemType "directory"
@@ -34,4 +41,5 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 choco install python3 -y
 choco install selenium-all-drivers -y
 choco install googlechrome -y
+choco install maven
 start-job -scriptblock {cmd.exe /C $run_file }

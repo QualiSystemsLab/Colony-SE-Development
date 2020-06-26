@@ -14,6 +14,8 @@ inputs:
   - AzureDevOpsURL: https://dev.azure.com/{project}
   - AgentName: MyAgent
   - AgentInstallURL: https://vstsagentpackage.azureedge.net/agent/2.170.1/vsts-agent-win-x64-2.170.1.zip
+  - LocalUser: Omri
+  - LocalUserPassword: Welcome1234567+
 
 applications:
 
@@ -25,6 +27,8 @@ applications:
         - AzureDevOpsURL: $AzureDevOpsURL
         - AgentName: $AgentName
         - AgentInstallURL: $AgentInstallURL
+        - LocalUser: $LocalUser
+        - LocalUserPassword: $LocalUserPassword
 
 debugging:
   availability: enabled-on

@@ -13,6 +13,8 @@ inputs:
   - AzureDevOpsURL
   - AgentName
   - AgentInstallURL
+  - LocalUser
+  - LocalUserPassword
 
 
 infrastructure:
