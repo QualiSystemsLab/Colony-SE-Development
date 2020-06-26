@@ -25,9 +25,6 @@ infrastructure:
       azure:
         vm_size: Standard_D2a_v4
 
-ingress:
-  enabled: false
-
 
 # This is a clean Ubuntu server image that will be
 # used to create a new EC2 instance in the defined AWS region

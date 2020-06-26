@@ -38,3 +38,6 @@ applications:
 
 debugging:
   availability: enabled-on
+
+ingress:
+  enabled: false
