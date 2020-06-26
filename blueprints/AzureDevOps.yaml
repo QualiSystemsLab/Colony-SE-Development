@@ -10,12 +10,14 @@ clouds:
 
 inputs:
   - AzureDevOpsPAT: token
+      display_style: masked
   - AgentPoolName: AgentPool
   - AzureDevOpsURL: https://dev.azure.com/{project}
   - AgentName: MyAgent
   - AgentInstallURL: https://vstsagentpackage.azureedge.net/agent/2.170.1/vsts-agent-win-x64-2.170.1.zip
   - LocalUser: Omri
   - LocalUserPassword: Welcome1234567+
+      display_style: masked
 
 applications:
 
