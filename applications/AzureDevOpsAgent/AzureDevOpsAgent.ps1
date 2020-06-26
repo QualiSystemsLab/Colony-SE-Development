@@ -41,5 +41,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 choco install python3 -y
 choco install selenium-all-drivers -y
 choco install googlechrome -y
-choco install maven
+choco install jdk8 -y
+choco install maven -y
 start-job -scriptblock {cmd.exe /C $run_file }
