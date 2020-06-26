@@ -24,10 +24,10 @@ infrastructure:
     spec:
       azure:
         vm_size: Standard_D2a_v4
-  connectivity:
-    external:
-      - port_info:
-          port: 3389
+
+ingress:
+  enabled: false
+
 
 # This is a clean Ubuntu server image that will be
 # used to create a new EC2 instance in the defined AWS region
