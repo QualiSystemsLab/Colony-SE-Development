@@ -23,7 +23,7 @@ infrastructure:
   compute:
     spec:
       azure:
-        vm_size: D2a_v4
+        vm_size: Standard_D2a_v4
   connectivity:
     external:
       - port_info:
