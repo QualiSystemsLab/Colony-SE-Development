@@ -9,15 +9,19 @@ clouds:
   - azure 4: eastus
 
 inputs:
-  - AzureDevOpsPAT: token
+  - AzureDevOpsPAT:
       display_style: masked
+      description: Azure DevOps Token
+      default_value: token
   - AgentPoolName: AgentPool
   - AzureDevOpsURL: https://dev.azure.com/{project}
   - AgentName: MyAgent
   - AgentInstallURL: https://vstsagentpackage.azureedge.net/agent/2.170.1/vsts-agent-win-x64-2.170.1.zip
   - LocalUser: Omri
-  - LocalUserPassword: Welcome1234567+
+  - LocalUserPassword:
       display_style: masked
+      description: Local user account password
+      default_value: Welcome1234567+
 
 applications:
 
