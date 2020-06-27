@@ -11,6 +11,7 @@ $username = "Network Service"
 $token = $env:AzureDevOpsPAT
 $pool = $env:AgentPoolName
 $url = $env:AzureDevOpsURL
+$project = $url.split("/")[-1]
 $agent_name = $env:AgentName
 $agent_install_url = $env:AgentInstallURL
 $local_user = $env:LocalUser
@@ -34,9 +35,8 @@ $acl | Set-Acl $folder
 
 # Config service
 $out = ""
-$out = cmd.exe /C $config_file --unattended --auth pat --token $token --url $url --pool $pool --agent $agent_name --acceptTeeEula --runAsService --WindowsLogonAccount 'NT AUTHORITY\SYSTEM'
+$out = cmd.exe /C $config_file --unattended --auth pat --token $token --url $url --pool $pool --agent $agent_name --acceptTeeEula --runAsAutoLogon --WindowsLogonAccount $local_user --WindowsLogonPassword $local_password --noRestart
 echo $out
-
 
 # Choco & friends
 
@@ -49,6 +49,4 @@ choco install jdk8 -y
 choco install maven -y
 
 # Start Agent
-#start-job -scriptblock {cmd.exe /C $run_file }
-start-job -scriptblock {cmd.exe /C shutdown -r -t 120}
-
+start-job -scriptblock {cmd.exe /C $run_file }
