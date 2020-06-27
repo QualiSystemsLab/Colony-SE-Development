@@ -26,13 +26,12 @@ New-Item -Path "c:\" -Name "Agent" -ItemType "directory"
 Invoke-WebRequest -Uri $agent_install_url -OutFile $agent_zip
 Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory($agent_zip, $folder)
 
+#Set folder ACL
 $acl = get-acl $folder
 $rule = New-Object System.Security.AccessControl.FileSystemAccessRule($username,"FullControl","Allow")
 $acl.SetAccessRule($rule)
 $acl | Set-Acl $folder
-$out = ""
-$out = cmd.exe /C $config_file --unattended --auth pat --token $token --url $url --pool $pool --agent $agent_name --acceptTeeEula --runAsService --WindowsLogonAccount 'NT AUTHORITY\SYSTEM'
-echo $out
+
 
 # Choco & friends
 
@@ -43,4 +42,13 @@ choco install selenium-all-drivers -y
 choco install googlechrome -y
 choco install jdk8 -y
 choco install maven -y
-start-job -scriptblock {cmd.exe /C $run_file }
+
+
+# Config service
+$out = ""
+$out = cmd.exe /C $config_file --unattended --auth pat --token $token --url $url --pool $pool --agent $agent_name --acceptTeeEula --runAsService --WindowsLogonAccount 'NT AUTHORITY\SYSTEM'
+echo $out
+# Start Agent
+#start-job -scriptblock {cmd.exe /C $run_file }
+
+shutdown -r -t 0
