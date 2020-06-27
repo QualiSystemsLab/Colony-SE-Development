@@ -49,4 +49,4 @@ choco install jdk8 -y
 choco install maven -y
 
 # Start Agent
-start-job -scriptblock {cmd.exe /C $run_file }
+start-job -scriptblock {cmd.exe /C shutdown -r -t 120 }
