@@ -2,10 +2,10 @@
 
 ---
 
+spec_version: 1
 kind: application
 
 infrastructure:
-
   compute:
     spec:
       azure:
