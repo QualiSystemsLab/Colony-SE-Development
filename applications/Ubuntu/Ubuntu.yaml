@@ -13,8 +13,9 @@ infrastructure:
 
 configuration:
   healthcheck:
-    wait_for_ports: ALL
-    timeout: 180
+    script: Ubuntu.sh
+    #wait_for_ports: ALL
+    timeout: 10
 source:
   image:
     azure_image:
