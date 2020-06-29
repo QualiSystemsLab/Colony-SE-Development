@@ -17,7 +17,7 @@ applications:
 
   - StormRunnerAgent:
       instances: 1
-  - Ubuntu:
+  - Linux:
       instances: 1
 
 debugging:

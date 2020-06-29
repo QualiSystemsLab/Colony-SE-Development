@@ -21,6 +21,6 @@ source:
     - urn: Canonical:UbuntuServer:16.04-LTS:latest
       username: adminuser
   os_type: linux
-spec_version: 1
+
 debugging:
   connection_protocol: SSH
