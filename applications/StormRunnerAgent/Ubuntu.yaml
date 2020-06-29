@@ -1,0 +1,22 @@
+kind: application
+
+infrastructure:
+
+  compute:
+    spec:
+      azure:
+        vm_size: Standard_D2a_v4
+
+configuration:
+  healthcheck:
+    wait_for_ports: ALL
+    timeout: 180
+source:
+  image:
+    azure_image:
+    - urn: Canonical:UbuntuServer:16.04-LTS:latest
+      username: adminuser
+  os_type: linux
+spec_version: 1
+debugging:
+  connection_protocol: SSH
