@@ -6,6 +6,10 @@ spec_version: 1
 kind: application
 
 infrastructure:
+  connectivity:
+    external:
+      - port_info:
+          port: 22
   compute:
     spec:
       azure:
