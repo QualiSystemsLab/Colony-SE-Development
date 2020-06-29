@@ -35,7 +35,7 @@ $acl | Set-Acl $folder
 
 # Config service
 $out = ""
-$out = cmd.exe /C $config_file --unattended --auth pat --token $token --url $url --pool $pool --agent $agent_name --acceptTeeEula --runAsAutoLogon --WindowsLogonAccount $local_user --WindowsLogonPassword $local_password --noRestart
+$out = cmd.exe /C $config_file --unattended --auth pat --token $token --url $url --pool $pool --agent $agent_name --acceptTeeEula --runAsAutoLogon --WindowsLogonAccount $local_user --WindowsLogonPassword $local_password --noRestart --replace
 echo $out
 
 # Choco & friends
