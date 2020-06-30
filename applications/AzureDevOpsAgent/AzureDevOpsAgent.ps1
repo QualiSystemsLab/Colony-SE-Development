@@ -38,6 +38,15 @@ $out = ""
 $out = cmd.exe /C $config_file --unattended --auth pat --token $token --url $url --pool $pool --agent $agent_name --acceptTeeEula --runAsAutoLogon --WindowsLogonAccount $local_user --WindowsLogonPassword $local_password --noRestart --replace
 echo $out
 
+
+# set registery for auto login
+
+$registry_path = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+
+$key_name = "DefaultPassword"
+
+New-ItemProperty -Path $registry_path -Name $key_name -Value $local_password -PropertyType String -Force | Out-Null
+
 # Choco & friends
 
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
