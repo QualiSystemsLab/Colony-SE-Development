@@ -42,10 +42,9 @@ echo $out
 # set registery for auto login
 
 $registry_path = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
-
 $key_name = "DefaultPassword"
-
-New-ItemProperty -Path $registry_path -Name $key_name -Value $local_password -PropertyType String -Force | Out-Null
+New-ItemProperty -Path $registry_path -Name $key_name -Value $local_password -PropertyType String -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value "0" -Force
 
 # Choco & friends
 
