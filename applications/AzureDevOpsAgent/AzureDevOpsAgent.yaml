@@ -35,6 +35,7 @@ source:
     azure_image:
       - urn: MicrosoftWindowsServer:WindowsServer:2019-Datacenter
         username: adminuser
+        password: Welcome1234567+
 
 
 configuration:

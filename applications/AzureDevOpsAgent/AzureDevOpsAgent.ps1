@@ -21,6 +21,10 @@ $local_password = $env:LocalUserPassword
 net user /add /Y $local_user $local_password
 net localgroup administrators $local_user /add
 
+# change to adminuser
+$local_user = "adminuser"
+$local_password = "Welcome1234567+"
+
 
 # download file
 New-Item -Path "c:\" -Name "Agent" -ItemType "directory"
