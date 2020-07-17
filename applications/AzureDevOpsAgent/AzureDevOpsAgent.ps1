@@ -21,21 +21,10 @@ $local_password = $env:LocalUserPassword
 net user /add /Y $local_user $local_password
 net localgroup administrators $local_user /add
 
-# change to adminuser
-$local_user = "adminuser"
-$local_password = "Welcome1234567+"
-
-
 # download file
 New-Item -Path "c:\" -Name "Agent" -ItemType "directory"
 Invoke-WebRequest -Uri $agent_install_url -OutFile $agent_zip
 Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory($agent_zip, $folder)
-
-#Set folder ACL
-$acl = get-acl $folder
-$rule = New-Object System.Security.AccessControl.FileSystemAccessRule($username,"FullControl","Allow")
-$acl.SetAccessRule($rule)
-$acl | Set-Acl $folder
 
 # Config service
 $out = ""

@@ -16,7 +16,6 @@ inputs:
   - LocalUser
   - LocalUserPassword
 
-
 infrastructure:
   # Specify the compute requirement for this app
   # if we don't specify anything the default will be used
@@ -24,19 +23,19 @@ infrastructure:
     spec:
       azure:
         vm_size: Standard_D2a_v4
-
+  connectivity:
+    external:
+      - port_info:
+          port: 3389
 
 # This is a clean Ubuntu server image that will be
 # used to create a new EC2 instance in the defined AWS region
 source:
   os_type: windows
   image:
-
     azure_image:
       - urn: MicrosoftWindowsServer:WindowsServer:2019-Datacenter
         username: adminuser
-        password: Welcome1234567+
-
 
 configuration:
   # The initialization script is intended to install
