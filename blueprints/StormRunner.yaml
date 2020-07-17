@@ -17,8 +17,6 @@ applications:
 
   - StormRunnerAgent:
       instances: 1
-  - Ubuntu:
-      instances: 1
 
 debugging:
   availability: enabled-on
