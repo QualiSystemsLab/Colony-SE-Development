@@ -1,0 +1,38 @@
+---
+spec_version: 1
+kind: blueprint
+
+metadata:
+  description: AzureDevOps Application
+
+clouds:
+  - azure 4: eastus
+
+inputs:
+  - DomainName: quali.local
+  - DomainUsername: administrator@quali.local
+  - OU:
+  - Hostname:
+  - LocalUser: Omri
+  - LocalUserPassword:
+      display_style: masked
+      description: Local user account password
+      default_value: Welcome1234567+
+
+applications:
+
+  - WindowsVM:
+      instances: 1
+      input_values:
+        - DomainName: $DomainName
+        - DomainUsername: $DomainUsername
+        - OU: $OU
+        - Hostname: $Hostname
+        - LocalUser: $LocalUser
+        - LocalUserPassword: $LocalUserPassword
+
+debugging:
+  availability: enabled-on
+
+ingress:
+  enabled: false
