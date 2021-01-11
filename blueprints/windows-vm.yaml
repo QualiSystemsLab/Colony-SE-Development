@@ -1,0 +1,18 @@
+spec_version: 1
+kind: blueprint
+
+metadata:
+  description: AzureDevOps Application
+
+clouds:
+    - azure 4: eastus
+
+applications:
+  - windows-vm
+      instances: 1      
+
+debugging:
+  availability: enabled-on
+
+ingress:
+  enabled: false
