@@ -6,8 +6,6 @@
 spec_version: 1
 kind: application
 
-inputs:
-
 infrastructure:
   # Specify the compute requirement for this app
   # if we don't specify anything the default will be used
@@ -31,13 +29,8 @@ source:
         password: Welcome1234567+
 
 configuration:
-  # The initialization script is intended to install
-  # app prerequisite and initialize the OS
-  # This script installs wordpress on a clean Ubuntu OS.
   initialization:
-    script: init.ps1
-
-  # To validate the installation, we wait to see that the ports are available
+    script: init.ps1  
   healthcheck:
     wait_for_ports: ALL
     timeout: 1500
