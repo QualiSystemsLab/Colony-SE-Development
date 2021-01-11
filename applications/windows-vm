@@ -1,0 +1,40 @@
+#
+#   This application file defines how to deploy and
+#   configure a StormRunner application
+#
+---
+spec_version: 1
+kind: application
+    
+infrastructure:
+  # Specify the compute requirement for this app
+  # if we don't specify anything the default will be used
+  compute:
+    spec:
+      azure:
+        vm_size: Standard_D2a_v4
+
+# This is a clean Ubuntu server image that will be
+# used to create a new EC2 instance in the defined AWS region
+source:
+  os_type: windows
+  image:
+    azure_image:
+      - urn: MicrosoftWindowsServer:WindowsServer:2019-Datacenter
+        username: useradmin
+        password: Welcome1234567+
+
+configuration:
+  # The initialization script is intended to install
+  # app prerequisite and initialize the OS
+  # This script installs wordpress on a clean Ubuntu OS.
+  initialization:
+    command: echo hello
+
+  # To validate the installation, we wait to see that the ports are available
+  healthcheck:
+    wait_for_ports: ALL
+    timeout: 1500
+
+debugging:
+  connection_protocol: RDP
