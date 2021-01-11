@@ -1,11 +1,14 @@
 spec_version: 1
 kind: application
 
+inputs:
+- AZURE_VM_SIZE: Standard_D2a_v4
+
 infrastructure:
   compute:
     spec:
       azure:
-        vm_size: Standard_D2a_v4
+        vm_size: $AZURE_VM_SIZE
   connectivity:
     external:
       - port_info:
@@ -14,6 +17,8 @@ infrastructure:
 configuration:
   initialization:
     script: init.ps1  
+  start:
+    script: init.ps1
   healthcheck:
     wait_for_ports: ALL
     timeout: 1500
