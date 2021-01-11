@@ -5,7 +5,9 @@
 ---
 spec_version: 1
 kind: application
-    
+
+inputs:
+
 infrastructure:
   # Specify the compute requirement for this app
   # if we don't specify anything the default will be used
