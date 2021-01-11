@@ -8,7 +8,7 @@ clouds:
     - azure 4: eastus
 
 applications:
-  - windows-vm
+  - windows-vm:
       instances: 1      
 
 debugging:
