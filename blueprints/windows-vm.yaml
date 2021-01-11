@@ -8,8 +8,7 @@ clouds:
     - azure 4: eastus
 
 applications:
-  - windows-vm:
-      instances: 1      
+  - windows-vm:   
 
 debugging:
   availability: enabled-on
